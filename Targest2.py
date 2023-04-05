@@ -1827,6 +1827,14 @@ def createExcel3():
 
 
     for orpha in orphanChildren2Copy:
+        if orpha != orphanChildren2Copy[0]:
+            cell10 = str('A'+ str(counter1-1))
+            #excelReport3.range(cell10).value = 'SEPERATOR'
+            excelReport3.range(cell10).font.Size = 14 # Change font size
+            excelReport3.range(cell10).font.ColorIndex = 2 # Change font color
+            cell11 = str(str(cell10) + ':G' + str(counter1-1))
+            excelReport3.range(cell11).color = (178,223,238) # Change cell background color
+
         cell = str('A'+ str(counter1))
         cell2 = str(str(orpha))
         excelReport3.range(cell).value = cell2
@@ -1856,7 +1864,7 @@ def createExcel3():
         for item in keys: #keys are child tags of hx/the parent tag
              print("child",item)
              if item != "" and item!= " ": # if the child tag is not empty
-                #print("child",item)
+
                 counter2 = counter1 - 1
                 cell = str('B'+ str(counter2))                                                
                 cell2 = str(item)  
